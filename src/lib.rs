@@ -1,5 +1,5 @@
 /// A sample
-pub struct Sample(f32);
+pub struct Sample(pub f32);
 
 /// A stream of single-channel audio
 pub trait Stream {
@@ -13,6 +13,12 @@ pub trait InputStream: Stream {
     /// # Returns
     /// The sample that is recorded, if available
     fn poll(&mut self) -> Option<Sample>;
+
+    /// Pauses the input capture of the stream in that
+    /// no new samples are made available
+    fn pause(&mut self);
+
+    fn resume(&mut self);
 }
 
 /// A stream that acts as an audio sink
