@@ -1,3 +1,12 @@
+/// Stream implementations using the [`cpal`](https://crates.io/crates/cpal) crate
+pub mod cpal {
+    mod input;
+    pub use input::*;
+
+    mod output;
+    pub use output::*;
+}
+
 /// A sample
 pub struct Sample(pub f32);
 
