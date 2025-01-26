@@ -29,6 +29,10 @@ impl CPALOutputStream {
                         *sample_container = sample.0;
                     }
                 }
+
+                // We clear the remaining data from the pipe
+                // so that we don't introduce delay
+                for _ in data.iter_mut() {}
             },
             |_info| {},
             timeout,
