@@ -21,7 +21,7 @@ pub trait InputStream: Stream {
     /// Polls a new sample from the stream, if available
     /// # Returns
     /// The sample that is recorded, if available
-    fn poll(&mut self) -> Option<Sample>;
+    fn poll(&mut self) -> Vec<Sample>;
 
     /// Pauses the input capture of the stream in that
     /// no new samples are made available

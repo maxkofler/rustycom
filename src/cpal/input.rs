@@ -51,8 +51,8 @@ impl Stream for CPALInputStream {
 }
 
 impl InputStream for CPALInputStream {
-    fn poll(&mut self) -> Option<crate::Sample> {
-        self.receiver.iter().next()
+    fn poll(&mut self) -> Vec<crate::Sample> {
+        self.receiver.iter().collect()
     }
 
     fn pause(&mut self) {
